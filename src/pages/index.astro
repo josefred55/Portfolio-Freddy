@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Badge from '../components/Badge.astro';
+import Experience from '../components/Experience.astro'
+import Projects from '../components/Projects.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import SocialPill from '../components/Socialpill.astro'
+import BriefcaseIcon from '../components/icons/Briefcase.astro'
+import CodeIcon from '../components/icons/Code.astro'
+import GitHubIcon from '../components/icons/Github.astro'
+import LinkedInIcon from '../components/icons/Linkedin.astro'
+import MailIcon from '../components/icons/Mail.astro'
+---
+
+<Layout 
+title="Portfolio de Freddy. Desarrollador y Programador Web" 
+description='Contrata a Freddy para crear tu aplicación Web'>
+	<main class="px-6">
+		<!-- primera sección del portfolio donde me presento  -->
+		<SectionContainer class="py-44 pb-32"> <!-- estos atributos de la clase de este sectioncontainer se van a incluir por medio de la variable que especificamos con astroprops en el archivo del componente (className) -->
+			<!-- lo de md  y lg es parte de responsive design para que atributos que definan el tamaño de elementos se adapten al dispositivo del usuario. por ejemplo aquí, el tamaño del texto es 3xl por defecto, y en pantallas medianas (md) será de 4xl 
+			Los atributos que empiecen por "p" son padding, hay varios tipos de padding. en este caso pb: padding bottom, o pt: padding top. ver docs-->
+			<h1 class="text-white text-3xl min-w-[500px] md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
+				Hola! Soy Freddy 
+				<a 
+				    href="Poner link de mi linkedin aquí" 
+					class="flex justify-center items-center"
+					target="_blank"
+					rel="noopener"
+				>
+					<Badge>Disponible para trabajar</Badge>
+				</a>
+			</h1>
+			<h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+				<span class="text-yellow-200/90">
+					Desarrollador web
+			    </span> 
+				<span class="text-red-200/90">
+					de Aragua, Venezuela.
+				</span>
+				<span class="opacity-80">
+					Especializado en aplicaciones Web
+				</span>
+			</h2>
+
+			<!-- iconos. en la clase; mt: margen hacia arriba. mb: margen hacia abajo. gap es como el espacio entre los elementos -->
+			<nav class="flex gap-4 mt-8 flex-wrap">
+				<!-- el href de este ícono lo va a recibir el componente de socialpill por medio de astro props -->
+				<SocialPill href="Link del linkedin" >
+					<!-- podemos usar el valor size de tailwind para específicar tanto el largo como el ancho si son iguales, es decir, size-6 sería igual a w-6 h-6 -->
+					<LinkedInIcon class="size-4 md:size-6" />Linkedin
+				</SocialPill>
+				<SocialPill href="https://github.com/josefred55" >
+					<GitHubIcon class="size-4 md:size-6" />Github
+				</SocialPill>
+				<SocialPill href="mailto:freddyarevalo2006@gmail.com" >
+					<MailIcon class="size-4 md:size-6" />freddyarevalo2006@gmail.com
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+
+		<SectionContainer id="experiencia" class="mt-10">
+				<h2 class="items-center text-3xl font-semibold mb-5 flex gap-x-3">
+					<BriefcaseIcon class="size-7"></BriefcaseIcon>
+					Experiencia Laboral
+				</h2>
+			<Experience />
+		</SectionContainer>
+
+		<SectionContainer id="proyectos" class="mt-10">
+				<h2 class="items-center text-3xl font-semibold mb-5 flex gap-x-3">
+					<CodeIcon class="size-7"></CodeIcon>
+					Proyectos
+				</h2>
+			<Projects />
+		</SectionContainer>
+	</main>
+</Layout>

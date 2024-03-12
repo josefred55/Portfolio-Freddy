@@ -1,0 +1,32 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+// recordar que la línea de tiempo de experiencia debe ir de lo más actual a lo más antiguo
+
+const EXPERIENCE = [
+    {
+        date: "Actualmente",
+        title: "Application UI code in Tailwind CSS",
+        description: "Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
+        link: "#"
+    },
+
+    {
+        date: "February 2022",
+        title: "Application UI code in Tailwind CSS",
+        description: "Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages."
+    }
+]
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+    <!-- hacemos un map a todos los elementos del array de experience para crear un li por cada item de la lista, dentro del cual vamos a crear un ExperienceItem pasando la información del item actual como prop 
+    fijate como en ExperienceItem.astro definimos los elementos de esos items como astro.props y así los podemos agarrar aquí como una variable sin específicar que vienen de astro props-->
+    {EXPERIENCE.map((experience) => (
+        <li class=" mb-10 ms-4">
+            <ExperienceItem  {...experience} />
+        </li>
+    ))
+    }
+</ol>
+

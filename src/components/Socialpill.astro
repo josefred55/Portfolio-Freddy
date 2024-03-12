@@ -1,0 +1,20 @@
+<!-- el component social pill lo podemos usar como base para todos los iconos de modo que al usarlo en nuestra página nuestro icono aparezca donde está el tag de slot -->
+<!-- NOTA astro props es como la forma en que podemos mandar información a los componentes, por ejemplo aquí una información que querríamos mandar sería el href del ícono, el cual vamos a específicar en el propio index -->
+<!-- podemos obtener la información de forma específica (como astro.props.href) o de forma general (...Astro.props) -->
+
+
+<!-- nuevamente responsive design para el padding vertical y horizontal y el tamaño del texto de los social pills -->
+<a 
+    class="
+        border-white/10 bg-white/5 border 
+        rounded-full flex justify-center items-center gap-x-2 
+        py-1 px-2 md:py-2 md:px-4 
+        text-xs md:text-base
+        transition 
+        hover:scale-110 hover:bg-white/10 "
+    {...Astro.props}
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    <slot />
+</a>

@@ -1,0 +1,13 @@
+<!-- un sectioncontainer para tenerlo como un componente y no tener que repetir las específicaciones de su clase al crear cada section -->
+
+<!-- definimos una variable proveniente de astro.props -->
+---
+const { class: className, id} = Astro.props
+---
+
+<!-- px es padding x (horizontal) y padding y seria vertical. mx: margin x 
+className es para que con astroprops se incluya cuaquier clase adicional que especifiquemos en una sección específica del index-->
+
+<section id={id} class={`${className} w-full mx-auto lg:w-[740px] pb-24`}>
+    <slot />
+</section>
